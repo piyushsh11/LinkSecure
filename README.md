@@ -3,8 +3,8 @@ Suspicious Link Detector (Android, Java)
 
 APK
 ---
-- Debug build: `/Volumes/BOJJH/CODEX/SuspiciousLinkDetectorApp/app/build/outputs/apk/debug/app-debug.apk`
-- Install via USB: `adb install -r /Volumes/BOJJH/CODEX/SuspiciousLinkDetectorApp/app/build/outputs/apk/debug/app-debug.apk`
+
+- Install via USB: `adb install -r app-debug.apk`
 
 What it does
 ------------
