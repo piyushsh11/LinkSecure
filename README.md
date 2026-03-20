@@ -3,8 +3,8 @@ Suspicious Link Detector (Android, Java)
 
 APK
 ---
-
-- Install via USB: `adb install -r app-debug.apk`
+- Debug build: `/Volumes/BOJJH/CODEX/SuspiciousLinkDetectorApp/app/build/outputs/apk/debug/app-debug.apk`
+- Install via USB: `adb install -r /Volumes/BOJJH/CODEX/SuspiciousLinkDetectorApp/app/build/outputs/apk/debug/app-debug.apk`
 
 What it does
 ------------
@@ -12,6 +12,8 @@ What it does
 - Analyze screen: black background, white URL box and buttons; “Analyze” runs a lightweight heuristic + SHA-256 signal.
 - History: recent scans saved in Room DB with seeded example sites so the list is not empty on first run.
 - Breathing/prompt screen and focus-timer style UI preserved per the reference mockups.
+- Dataset insights screen: tap “Dataset Insights” to see counts (safe/suspicious/dangerous), totals, and average risk from the saved history.
+- Full history screen: tap “Full History” to view the complete list in a dedicated page.
 
 How to run in Android Studio
 ----------------------------
@@ -31,6 +33,8 @@ flowchart TD
     E --> F[Risk classification & score shown]
     F --> G[Save result to Room DB]
     G --> H[History list updates]
+    H --> I[Dataset Insights screen\naggregate counts + average]
+    H --> J[Full History screen\nfull list view]
 ```
 
 Key files
@@ -39,6 +43,8 @@ Key files
 - PIN screen UI: `app/src/main/res/layout/activity_pin.xml`
 - Analyze screen UI: `app/src/main/res/layout/activity_main.xml`
 - History row: `app/src/main/res/layout/item_link.xml`
+- Dataset insights screen: `app/src/main/java/com/example/suspiciousdetector/AnalysisActivity.java`, `app/src/main/res/layout/activity_analysis.xml`
+- Full history screen: `app/src/main/java/com/example/suspiciousdetector/HistoryActivity.java`, `app/src/main/res/layout/activity_history.xml`
 - Core logic: `app/src/main/java/com/example/suspiciousdetector/LinkAnalyzer.java`
 - Persistence (Room): `app/src/main/java/com/example/suspiciousdetector/LinkDatabase.java`, `LinkResultDao.java`, `LinkResult.java`, `LinkResultAdapter.java`
 - Lion image asset: `app/src/main/res/drawable/lion.png`
